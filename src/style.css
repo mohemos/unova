@@ -1,0 +1,206 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+body{
+  background-color: rgb(221, 210, 210);
+}
+
+#container{
+  background: white;
+  width: 900px;
+  margin: 0px auto;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.tableHolder{
+  border-radius: 5px;
+  width: 80%;
+  margin: 0px auto;
+  border: solid 1px #dbdbdb;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+.sideWidth{
+  width: 3% !important;
+}
+.scoreRow td{
+  width: 4%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 13px;
+}
+.borderLeft{
+  border-left: solid 1px #dbdbdb !important;
+}
+.borderRight{
+  border-Right: solid 1px #dbdbdb !important;
+}
+.borderBottom th{
+  border-bottom: solid 1px #dbdbdb !important;
+  padding: 5px 0;
+  font-size: 13px;
+}
+.bgColor {
+  background: #fafafa !important;
+}
+
+
+.tabContainer{
+  width: 100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  list-style: none;
+  background:rgb(87, 131, 87);
+  margin-bottom: 20px;
+}
+
+.tabContainer li{
+  padding: 10px 10px;
+  font: bold 20px tahoma;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.cardWrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card{
+  padding: 10px 5px;
+  margin: 5px 10px;
+  box-shadow: 0px 0px 5px 0px green;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.fixture{
+  padding: 10px 5px;
+  margin: 10px 10px 30px 10px;
+  box-shadow: 0px 0px 5px 0px green;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.fixtureTeam{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.fixtureTeamImage{
+  max-width: 50px;
+
+}
+
+.matchTime{
+  font: italic 15px tahoma;
+  text-align:center;
+  color: #746e6e;
+  margin-top: 5px;
+}
+
+.visiting{
+  font: italic 10px tahoma;
+  text-align:center;
+  color: #746e6e;
+}
+
+.cardImage{
+  max-width: 250px;
+  max-height: 250px;
+  margin: 0px auto;
+}
+
+.addButton{
+  width: 100%;
+  color: #fff;
+  background: rgb(87, 131, 87);
+  padding: 10px;
+  font: bold 15px tahoma;
+}
+
+.formInput{
+  display: block;
+  padding: 10px 0px;
+  margin: 15px auto;
+  box-shadow: 0px 0px 3px green;
+  background: #fff;
+  color: #000;
+  outline: none;
+  border: 0px;
+  width: 95%;
+}
+
+button{
+  padding: 10px;
+  background:rgb(87, 131, 87);
+  color: #fff;
+  border: 0px;
+  width: 100%;
+}
+
+form{
+  width : 300px;
+  margin: 0px auto;
+}
+
+.matchPlayerTable{
+  width: 80%;
+  margin: 20px auto;
+}
+
+.matchStartTime{
+  text-align: center;
+  color: rgb(87, 131, 87);
+  margin-bottom: 20px;
+}
+
+.matchPlayerTable thead{
+  font: bold 20px tahoma;
+  text-transform: uppercase;
+}
+
+.teamPlayer{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.teamPlayer img{
+  border-radius: 10px;
+  max-width: 50px;
+}
+
+.teamPlayer p{
+  font: normal 16px comic sans ms;
+  letter-spacing: 1.5px;
+}
+
+.teamPosition{
+  display: flex;
+  justify-content: space-between;
+}

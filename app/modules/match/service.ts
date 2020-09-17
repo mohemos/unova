@@ -2,7 +2,7 @@ import client from '../../utils/db';
 import { COLLECTIONS, CACHE_DURATION } from '../../utils/constants';
 import { ObjectId } from 'mongodb';
 import * as cache from '../../utils/cache';
-import {NotFoundError} from 'iyasunday';
+import { NotFoundError } from 'iyasunday';
 
 export async function create(body) {
   try {
@@ -180,50 +180,51 @@ export async function view({ _id }: any, cacheKey) {
 
 export async function viewScore({ _id }: any) {
   try {
-    const match = await client.db().collection(COLLECTIONS.MATCH)
+    const match = await client
+      .db()
+      .collection(COLLECTIONS.MATCH)
       .findOne(
-        {_id : new ObjectId(_id)},
-        { projection : {awayTeamScore:1, homeTeamScore:1} }
+        { _id: new ObjectId(_id) },
+        { projection: { awayTeamScore: 1, homeTeamScore: 1 } }
       );
 
-    if(!match) throw new NotFoundError("Match not found");
-    const homeTeamScores:any = match.homeTeamScore;
-    const awayTeamScores:any = match.awayTeamScore;
+    if (!match) throw new NotFoundError('Match not found');
+    const homeTeamScores: any = match.homeTeamScore;
+    const awayTeamScores: any = match.awayTeamScore;
     const maxRound = Math.max(awayTeamScores.length, homeTeamScores.length);
     const totalScore = {
-      awayTeamScore : {
-        scores : [],
-        hit : 0,
-        error : 0,
-        total : 0
+      awayTeamScore: {
+        scores: [],
+        hit: 0,
+        error: 0,
+        total: 0,
       },
 
-      homeTeamScore : {
-        scores : [],
-        hit : 0,
-        error : 0,
-        total : 0
-      }
+      homeTeamScore: {
+        scores: [],
+        hit: 0,
+        error: 0,
+        total: 0,
+      },
     };
 
-
-    for(let i=0; i<maxRound; i++){
+    for (let i = 0; i < maxRound; i++) {
       const homeTeamData = homeTeamScores[i] || {};
       totalScore.homeTeamScore.scores.push(homeTeamData.score || 0);
-      totalScore.homeTeamScore.hit+=homeTeamData.hit || 0;
-      totalScore.homeTeamScore.error+=homeTeamData.error || 0; 
-      totalScore.homeTeamScore.total+=homeTeamData.score || 0;   
-    
+      totalScore.homeTeamScore.hit += homeTeamData.hit || 0;
+      totalScore.homeTeamScore.error += homeTeamData.error || 0;
+      totalScore.homeTeamScore.total += homeTeamData.score || 0;
+
       const awayTeamData = awayTeamScores[i] || {};
       totalScore.awayTeamScore.scores.push(awayTeamData.score || 0);
-      totalScore.awayTeamScore.hit+=awayTeamData.hit || 0;
-      totalScore.awayTeamScore.error+=awayTeamData.error || 0; 
-      totalScore.awayTeamScore.total+=awayTeamData.score || 0;       
+      totalScore.awayTeamScore.hit += awayTeamData.hit || 0;
+      totalScore.awayTeamScore.error += awayTeamData.error || 0;
+      totalScore.awayTeamScore.total += awayTeamData.score || 0;
     }
 
     return {
-      success : true,
-      data : totalScore
+      success: true,
+      data: totalScore,
     };
   } catch (err) {
     throw err;

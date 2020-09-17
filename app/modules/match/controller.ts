@@ -32,11 +32,7 @@ export async function view(req: Request, res: Response) {
 
 export async function viewScore(req: Request, res: Response) {
   try {
-    res
-      .status(200)
-      .json(
-        await service.viewScore(req.params)
-      );
+    res.status(200).json(await service.viewScore(req.params));
   } catch (err) {
     res.status(err.httpStatusCode || 500).json(errorMessage(err));
   }
